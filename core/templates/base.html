@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+{% load bootstrap4 %}
+{% load static %}
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://www.quadrinhoseroticos.blog/wp-content/themes/quadrinhoseroticos/style.css?ver=1654179004" type="text/css">
+    <link rel="stylesheet" id="wp-block-library-css" href="https://www.quadrinhoseroticos.blog/wp-includes/css/dist/block-library/style.min.css?ver=2.4" type="text/css" media="all">
+    {% block link %}{% endblock %}
+    <title>{% block title %}{% endblock %}</title>
+    {% bootstrap_css %}
+</head>
+<body>
+{% block content %}{% endblock %}
+
+{% bootstrap_javascript jquery='full' %}
+</body>
+</html>

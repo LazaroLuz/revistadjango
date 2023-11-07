@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% load static %}
+
+{% block title %}Página Inicial{% endblock %}
+{% block content %}
+    <div class="container">
+        <form method="POST" action="{% url 'revista' %}" class="form-horizontal">
+            <div class="form-group">
+                {% csrf_token %}
+                {% bootstrap_form form %}
+                {% buttons %}
+                    <button type="submit" class="btn btn-primary">Salvar</button>
+                {% endbuttons %}
+            </div>
+        </form>
+    </div>
+{% endblock %}

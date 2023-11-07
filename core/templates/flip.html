@@ -1,0 +1,65 @@
+<!doctype html>
+{% load static %}
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>{{ comics.name }}</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script type="text/javascript" src="{% static 'js/turnjs.min.js' %}"></script>
+    <style>
+		body{
+			overflow: hidden;
+		}
+		#flipbook{
+			width:1290px;
+			height:1821px;
+		}
+		#flipbook .page{
+			background: white;
+			width:1290px;
+			height:1821px;
+		}
+		#flipbook .shadow,
+		#flipbook.shadow{
+		  -webkit-box-shadow: 0 4px 10px #666;
+		  -moz-box-shadow: 0 4px 10px #666;
+		  -ms-box-shadow: 0 4px 10px #666;
+		  -o-box-shadow: 0 4px 10px #666;
+		  box-shadow: 0 4px 10px #666;
+		}
+
+
+
+
+    </style>
+</head>
+
+<body>
+<div class="container">
+    <h1 class="title">{{ comics.name }}</h1>
+    <p>{{ comics.description }}</p>
+    <div id="flipbook">
+
+        {% for img in galeria %}
+            <div>
+                <img width="90%" height="90%" src="{{ img.file }}"/>
+            </div>
+        {% endfor %}
+
+    </div>
+</div>
+<script type="text/javascript">
+		$('#flipbook').turn({
+			width: 1230,
+			height: 910,
+			page: 1,
+			autoCenter: true,
+			duration: 2000
+
+		})
+
+
+</script>
+</body>
+</html>

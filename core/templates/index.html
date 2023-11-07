@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}Página Inicial{% endblock %}
+{% block content %}
+
+    <h1>L´erotics Quadrinhos</h1>
+    <div class="cn-container">
+        <div class="cn-firstcolumn">
+            <main>
+                <section>
+                    <div class="cn-list">
+                        {% for c in page_obj %}
+                        <article>
+                            <div class="border">
+                                <figure>
+                                    <a href="{% url 'flip' c.slug %}" title="{{ c.name }}" data-popup-clique="1">
+                                        <div class="image" style="width: 260; height: 360; background-image:url('{{ c.picture }}'); "></div>
+                                        <span class="cn-mask"></span>
+                                    </a>
+                                </figure>
+                                <header>
+                                    <a href="{% url 'flip' c.slug %}" title="{{ c.name }}" data-popup-clique="1">
+                                        <h4>{{ c.name }}</h4></a>
+                                </header>
+                                <div class="cn-meta">{{ c.description }}</div>
+                            </div>
+                        </article>
+                        {% endfor %}
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+        <div class="container">
+            <ul class="pagination">
+
+                    {% if page_obj.has_previous %}
+                        <li class="page-item"><a class="page-link" href="?page=1">&laquo; first</a></li>
+                        <li class="page-item"><a class="page-link" href="?page={{ page_obj.previous_page_number }}">previous</a></li>
+                    {% endif %}
+
+                    <li class="page-item page-link"><span class="current">
+                        Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                    </span></li>
+
+                    {% if page_obj.has_next %}
+                        <li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}">next</a></li>
+                        <li class="page-item"><a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a></li>
+                    {% endif %}
+
+            </ul>
+    </div>
+{% endblock %}

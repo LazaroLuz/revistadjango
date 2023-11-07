@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Teste{% endblock %}
+{% block content %}
+<div class="cn-container" xmlns="http://www.w3.org/1999/html">
+    <div class="cn-firstcolumn">
+        <article class="article">
+            <div class="cn-text">
+                <header>
+                    <h1 class="cn-heading">
+                        {{ comics.name }}</h1>
+                </header>
+                <p>{{ comics.description }}</p>
+                <p>
+                    <script type="text/css">
+                        #gallery-1 {
+                            margin: auto;
+                        }
+                        #gallery-1 .gallery-item {
+                            float: left;
+                            margin-top: 10px;
+                            text-align: center;
+                            width: 100%;
+                        }
+                        #gallery-1 img {
+                            border: 2px solid #cfcfcf;
+                        }
+                        #gallery-1 .gallery-caption {
+                            margin-left: 0;
+                        }
+                        /* see gallery_shortcode() in wp-includes/media.php */
+                    </script>>
+                </p>
+                <div id="gallery-1" class="gallery galleryid-156372 gallery-columns-1 gallery-size-full">
+                    {% for img in galeria %}
+
+                    <dl class="gallery-item">
+                        <dt class="gallery-icon landscape">
+                            <img width="1579" height="1200" src="{{ img.file }}" class="attachment-full size-full"
+                                 alt="" loading="lazy">
+                            <p></p>
+                            <script data-cfasync="false" type="text/javascript"
+                                    src="//fri4esianewheywr90itrage.com/lv/esnk/1924228/code.js" async=""
+                                    id="__clb-1924228"></script>
+                            <p></p>
+                        </dt>
+                    </dl>
+                    <br style="clear: both">
+                    {% endfor %}
+                </div>
+            </div>
+        </article>
+    </div>
+
+</div>
+{% endblock %}
